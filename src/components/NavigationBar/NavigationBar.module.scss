@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 
 .navigationBar {
   display: flex;
@@ -16,8 +16,7 @@
   list-style: none;
 }
 
-.item {
-}
+.item {}
 
 .link {
   display: block;
