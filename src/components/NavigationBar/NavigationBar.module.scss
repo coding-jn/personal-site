@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.navigationBar {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  z-index: 99999;
+  padding: 30px 5%;
+}
+
+.items {
+  max-width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  list-style: none;
+}
+
+.item {
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  font-size: 18px;
+  color: $color-black;
+}

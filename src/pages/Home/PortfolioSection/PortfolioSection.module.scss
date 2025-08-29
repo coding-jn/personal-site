@@ -1,0 +1,24 @@
+@use '../../../styles/variables';
+@use '../../../styles/mixins' as *;
+
+.portfolio {
+  padding: 5%;
+}
+
+.portfolioList {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 32px;
+
+  @include media(md) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 32px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
