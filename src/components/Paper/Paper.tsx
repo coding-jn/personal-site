@@ -2,32 +2,40 @@
 // Original design can be found at: https://codepen.io/aitchiss/pen/QWKmPqx
 
 import styles from './Paper.module.scss'
-import { PaperProps, TYPES } from './types'
+import { PaperProps } from './types'
 import classNames from 'classnames'
 
 export const Paper = ({
   description,
   image,
   href,
-  color = 'pink',
-  type = TYPES.DEFAULT,
+  color = 'marriott',
+  title,
+  subtitle,
 }: PaperProps) => {
   return (
-    <div className={classNames(styles.paper, styles[color])}>
-      {type === 'tape' && <div className={styles.tape}></div>}
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.text}
-      >
-        {description}
-      </a>
-      <div className={styles.imageContainer}>
-        <div className={styles.gradient}></div>
-        <img className={styles.image} src={image} alt={description} />
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`View ${title} project - ${subtitle}`}
+      className={classNames(styles.fileContainer, styles[color])}
+    >
+      <div className={styles.cardImageFloat}>
+        <div className={styles.roundedImage}>
+          <img
+            src={image}
+            alt={`Screenshot of ${title} project showing ${description || subtitle}`}
+            className={styles.coverImage}
+          />
+        </div>
       </div>
-      {type === 'tape' && <div className={styles.tape}></div>}
-    </div>
+      <div className={styles.innerCardBottom}>
+        <h3 className={classNames(styles.mainHeading)}>{title}</h3>
+        <p className={classNames(styles.secondaryHeading)}>
+          {subtitle}
+        </p>
+      </div>
+    </a>
   )
 }

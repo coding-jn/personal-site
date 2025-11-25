@@ -1,50 +1,142 @@
 @use '../../../styles/variables' as *;
 
-.hero {
-  margin: 60px 5%;
-}
-
-.heroOverlay {
-  background: url('../../assets/grain-overlay.svg');
-  opacity: 0.08;
-  mix-blend-mode: overlay;
-  background-position: 0 0;
-  background-size: auto;
-  display: block;
-  position: fixed;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-}
-
-.header {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-row-gap: 24px;
-}
-
-.title {
-  font-size: 60px;
-  font-weight: 600;
-  color: $color-pink;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 16px;
-  font-weight: 600;
-  color: $color-black;
-}
-
-.location {
+.sectionHeroDesktop {
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  column-gap: 6px;
+  justify-content: center;
 }
 
-.city {
-  font-size: 18px;
+.sectionHeroMobile {
+  display: none;
+}
+
+.mainContainer {
+  max-width: 1450px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.heroGridDesktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textSection {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 48px;
+}
+
+.h1 {
+  color: $color-gold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 0.95;
+  font-family: 'Epilogue', serif;
+}
+
+.heroParagraph {
+  max-width: 60ch;
   color: $color-black;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+}
+
+.paragraphSmall {
+  font-size: 18px;
+}
+
+
+@media screen and (max-width: 991px) {
+  .h1 {
+    font-size: 80px;
+  }
+
+  .heroParagraph {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sectionHeroDesktop {
+    display: none;
+  }
+
+  .sectionHeroMobile {
+    display: block;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 0 60px;
+  }
+
+  .heroGridMobile {
+    width: 100%;
+  }
+
+  .contentHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .h1.mobile {
+    font-size: 72px;
+    letter-spacing: 2px;
+  }
+
+  .heroParagraph.mobile {
+    font-size: 19px;
+    max-width: 50ch;
+    line-height: 1.7;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .h1 {
+    font-size: 48px;
+  }
+
+  .h1.mobile {
+    font-size: 48px;
+    letter-spacing: 1px;
+  }
+
+  .heroParagraph.mobile {
+    font-size: 17px;
+  }
+
+  .checkItem {
+    font-size: 16px;
+  }
+
+  .paragraphSmall {
+    font-size: 16px;
+  }
+
+  .mainContainer {
+    padding: 0 20px;
+  }
 }

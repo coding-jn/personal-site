@@ -1,34 +1,64 @@
 import { Paper } from '../../../components/Paper'
-
+import { TYPES } from '../../../components/Paper/types'
 import styles from './PortfolioSection.module.scss'
-import MarriottSalesCompanionLanding from '../../../assets/marriott-sales-companion-landing.webp'
-import PreKindleLanding from '../../../assets/prekindle-landing.webp'
-import UVAHealthLogo from '../../../assets/uva-health-logo.png'
+import marriottImage from '../../../assets/marriott-international.webp'
+import prekindleImage from '../../../assets/prekindle.png'
+import uvaHealthImage from '../../../assets/uva-health.png'
+
+const projects = [
+  {
+    id: 1,
+    color: 'marriott' as const,
+    image: marriottImage,
+    label: 'INTERNAL PLATFORMS',
+    title: 'Marriott International',
+    subtitle: 'FULL-STACK DEVELOPMENT',
+    whiteText: true,
+    href: 'https://mi.bookmarriott.com/',
+  },
+  {
+    id: 2,
+    color: 'prekindle' as const,
+    image: prekindleImage,
+    label: 'EVENT TICKETING',
+    title: 'PreKindle',
+    subtitle: 'FRONT-END DEVELOPMENT',
+    whiteText: false,
+    href: 'https://web.prekindle.com/',
+  },
+  {
+    id: 3,
+    color: 'uvah' as const,
+    image: uvaHealthImage,
+    label: 'HEALTHCARE',
+    title: 'UVA Health',
+    subtitle: 'FRONT-END DEVELOPMENT',
+    whiteText: false,
+    href: 'https://www.uvahealth.com/',
+  }
+]
 
 export const PortfolioSection = () => {
   return (
-    <div className={styles.portfolio}>
-      <h2 className={styles.title}>Portfolio</h2>
-      <div className={styles.portfolioList}>
-        <Paper
-          color="black"
-          description="Marriott Sales Companion"
-          href="https://mi.bookmarriott.com/"
-          image={MarriottSalesCompanionLanding}
-        />
-        <Paper
-          color="pink"
-          description="PreKindle"
-          href="https://web.prekindle.com/"
-          image={PreKindleLanding}
-        />
-        <Paper
-          color="pink"
-          description="UVA Health"
-          href="https://uvahealth.com/"
-          image={UVAHealthLogo}
-        />
+    <section id="work" className={styles.project}>
+      <div className={styles.h1Hp}>PROJECT HIGHLIGHTS<br /></div>
+      <div className={styles.projectHighlightContainer}>
+        <div className={styles.projectHighlightGrid}>
+          {projects.map((project) => (
+            <Paper
+              key={project.id}
+              type={TYPES.PROJECT}
+              color={project.color}
+              image={project.image}
+              label={project.label}
+              title={project.title}
+              subtitle={project.subtitle}
+              whiteText={project.whiteText}
+              href={project.href}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

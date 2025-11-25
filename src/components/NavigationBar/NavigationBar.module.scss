@@ -1,26 +1,145 @@
 @use '../../styles/variables' as *;
 
-.navigationBar {
+.navbarNew {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 253, 247, 0.98);
+}
+
+.navbarContainer {
+  width: 100%;
+  max-width: 1450px;
+  padding: 30px 20px;
+  margin: 0 auto;
+}
+
+.containerRegular {
+  width: 100%;
+  max-width: 100%;
+}
+
+.navbarWrapper {
   display: flex;
-  justify-content: end;
-  position: relative;
-  z-index: 99999;
-  padding: 30px 5%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.items {
-  max-width: fit-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 24px;
-  list-style: none;
-}
-
-.item {}
-
-.link {
-  display: block;
+.navbarBrand {
   text-decoration: none;
-  font-size: 18px;
+  transition: opacity 0.3s;
+  border-radius: 4px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 4px;
+  }
+}
+
+.terminal {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.user {
+  color: $color-gold;
+  font-weight: 600;
+}
+
+.at {
   color: $color-black;
+}
+
+.host {
+  color: $color-gold;
+  font-weight: 600;
+}
+
+.colon {
+  color: $color-black;
+}
+
+.path {
+  color: $color-wheat;
+  font-weight: 600;
+}
+
+.prompt {
+  color: $color-black;
+  margin-left: 4px;
+}
+
+.cursor {
+  color: $color-peach-gold;
+  font-weight: 700;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+
+.navMenu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+}
+
+.navLink {
+  color: $color-black;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    color: $color-gold;
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: 2px solid $color-gold;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }

@@ -1,6 +1,6 @@
 import styles from './Home.module.scss'
-import { PortfolioSection } from './PortfolioSection'
 import { HeroSection } from './HeroSection'
+import { PortfolioSection } from './PortfolioSection'
 
 export const Home = () => {
   return (

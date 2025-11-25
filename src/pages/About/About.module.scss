@@ -1,0 +1,147 @@
+@use '../../styles/variables' as *;
+
+.sectionAboutDesktop {
+  padding: 100px 0 80px;
+  min-height: calc(100vh - 80px);
+}
+
+.sectionAboutMobile {
+  display: none;
+}
+
+.mainContainer {
+  max-width: 1450px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.aboutGrid {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 100%;
+}
+
+.heading {
+  color: $color-gold;
+  letter-spacing: 2px;
+  margin: 0;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.terminal {
+  font-family: 'Courier New', 'Courier', monospace;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  text-transform: none;
+}
+
+.user {
+  color: $color-gold;
+  font-weight: 600;
+}
+
+.at {
+  color: $color-black;
+}
+
+.host {
+  color: $color-gold;
+  font-weight: 600;
+}
+
+.colon {
+  color: $color-black;
+}
+
+.path {
+  color: $color-wheat;
+  font-weight: 600;
+}
+
+.prompt {
+  color: $color-black;
+  margin-left: 4px;
+}
+
+.space {
+  display: inline-block;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.paragraph {
+  color: $color-black;
+  letter-spacing: 0.3px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.highlight {
+  color: $color-gold;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 991px) {
+  .heading {
+    font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sectionAboutDesktop {
+    display: none;
+  }
+
+  .sectionAboutMobile {
+    display: block;
+    padding: 80px 0 60px;
+  }
+
+  .heading.mobile {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .paragraph.mobile {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .heading.mobile {
+    font-size: 32px;
+  }
+
+  .paragraph.mobile {
+    font-size: 16px;
+  }
+
+  .mainContainer {
+    padding: 0 20px;
+  }
+}
