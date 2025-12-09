@@ -30,6 +30,15 @@ export const Footer = () => {
               >
                 LinkedIn
               </a>
+              <a
+                href="https://github.com/coding-jn"
+                className={styles.footerLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Jenna's Github profile"
+              >
+                Github
+              </a>
             </div>
           </nav>
         </div>
