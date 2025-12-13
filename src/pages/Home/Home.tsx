@@ -1,12 +1,12 @@
 import styles from './Home.module.scss'
 import { HeroSection } from './HeroSection'
-import { PortfolioSection } from './PortfolioSection'
+import { ProjectSection } from './ProjectSection'
 
 export const Home = () => {
   return (
     <div className={styles.container}>
       <HeroSection />
-      <PortfolioSection />
+      <ProjectSection />
     </div>
   )
 }

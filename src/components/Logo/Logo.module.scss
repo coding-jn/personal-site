@@ -1,0 +1,59 @@
+@use '../../styles/variables' as *;
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.terminal {
+    font-family: 'Courier New', 'Courier', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.user {
+    color: $color-gold;
+    font-weight: 600;
+}
+
+.at {
+    color: $color-black;
+}
+
+.host {
+    color: $color-gold;
+    font-weight: 600;
+}
+
+.colon {
+    color: $color-black;
+}
+
+.path {
+    color: $color-wheat;
+    font-weight: 600;
+}
+
+.prompt {
+    color: $color-black;
+    margin-left: 4px;
+}
+
+.cursor {
+    color: $color-peach-gold;
+    font-weight: 700;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}

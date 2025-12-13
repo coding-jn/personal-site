@@ -1,50 +1,38 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.footerNew {
-  position: relative;
-  background-color: $color-gold;
-  padding: 140px 32px 16px;
-  color: $color-black;
+.footer {
   margin-top: -60px;
+  padding: 80px 32px 32px;
   clip-path: polygon(0 0, 100% 60px, 100% 100%, 0 100%);
+  background-color: $color-gold;
+
+  @include media(md) {
+    padding: 100px 32px 32px;
+  }
 }
 
 .footerWrapper {
-  position: relative;
-  max-width: none;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 1;
-}
+  flex-direction: column;
+  gap: 48px;
 
-.footerBrand {
-  border-radius: 4px;
-
-  &:focus {
-    outline: 2px solid $color-background-white;
-    outline-offset: 4px;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: 2px solid $color-background-white;
-    outline-offset: 4px;
-  }
-
-  img {
-    height: auto;
-    width: auto;
+  @include media(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
   }
 }
 
 .footerContent {
   display: grid;
-  grid-template-columns: auto auto;
-  gap: 40px 64px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include media(md) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .footerBlock {
@@ -56,20 +44,17 @@
 
 .titleSmall {
   color: $color-black;
-  letter-spacing: 1px;
   text-transform: uppercase;
-  margin: 0;
   font-size: 14px;
   font-weight: 700;
-  line-height: 16px;
 }
 
 .footerLink {
   color: $color-black;
+  text-transform: capitalize;
   margin: 0;
   font-size: 14px;
   font-weight: 300;
-  line-height: 1.4;
   text-decoration: none;
   transition: all 0.3s;
   border-radius: 4px;
@@ -95,35 +80,25 @@
   }
 }
 
-.footerDivider {
-  position: relative;
-  width: 100%;
-  height: 1px;
-  background-color: $color-black;
-  margin: 56px auto 12px;
-  max-width: 1440px;
-  z-index: 1;
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media(md) {
+    margin-top: 80px;
+    padding-top: 32px;
+  }
 }
 
-.footerCopyright {
-  position: relative;
-  color: $color-black;
+.copyrightText {
+  margin-left: 8px;
   text-align: center;
-  letter-spacing: 0.5px;
   font-size: 12px;
-  font-weight: 300;
-  line-height: 1.4;
-  z-index: 1;
-}
-
-/* responsive */
-@media screen and (max-width: 767px) {
-  .footerWrapper {
-    flex-direction: column;
-  }
-
-  .footerContent {
-    grid-template-columns: 1fr;
-    margin-top: 40px;
-  }
+  color: $color-black;
 }

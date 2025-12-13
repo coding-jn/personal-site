@@ -1,6 +1,9 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.navbarNew {
+
+.navbar {
+  height: 100px;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,6 +13,7 @@
 }
 
 .navbarContainer {
+  height: 100%;
   width: 100%;
   max-width: 1450px;
   padding: 30px 20px;
@@ -51,65 +55,102 @@
   }
 }
 
-.terminal {
-  font-family: 'Courier New', 'Courier', monospace;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.user {
-  color: $color-gold;
-  font-weight: 600;
-}
-
-.at {
-  color: $color-black;
-}
-
-.host {
-  color: $color-gold;
-  font-weight: 600;
-}
-
-.colon {
-  color: $color-black;
-}
-
-.path {
-  color: $color-wheat;
-  font-weight: 600;
-}
-
-.prompt {
-  color: $color-black;
-  margin-left: 4px;
-}
-
-.cursor {
-  color: $color-peach-gold;
-  font-weight: 700;
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
-}
-
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  50.01%, 100% {
+
+  50.01%,
+  100% {
     opacity: 0;
   }
 }
 
-.navMenu {
-  display: flex;
+.navMenuDesktop {
+  display: none;
   gap: 30px;
   list-style: none;
   align-items: center;
+
+  @include media(md) {
+    display: flex;
+  }
+}
+
+.mobileMenuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: $color-black;
+  transition: all 0.3s;
+  border-radius: 4px;
+
+  &:hover {
+    color: $color-gold;
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: 2px solid $color-gold;
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-gold;
+    outline-offset: 2px;
+  }
+
+  @include media(md) {
+    display: none;
+  }
+}
+
+.mobileMenuDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 253, 247, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-out;
+  padding: 20px;
+
+  @include media(md) {
+    display: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileMenuList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .navLink {
@@ -121,6 +162,7 @@
   font-weight: 300;
   text-decoration: none;
   transition: all 0.3s;
+  display: block;
 
   &:hover {
     color: $color-gold;

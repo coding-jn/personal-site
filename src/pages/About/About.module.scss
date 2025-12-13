@@ -1,18 +1,8 @@
 @use '../../styles/variables' as *;
 
-.sectionAboutDesktop {
-  padding: 100px 0 80px;
-  min-height: calc(100vh - 80px);
-}
-
-.sectionAboutMobile {
-  display: none;
-}
-
-.mainContainer {
-  max-width: 1450px;
-  padding: 0 20px;
-  margin: 0 auto;
+.about {
+  min-height: calc(100vh - 100px);
+  padding: 30px 20px;
 }
 
 .aboutGrid {
@@ -109,39 +99,5 @@
 @media screen and (max-width: 991px) {
   .heading {
     font-size: 42px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .sectionAboutDesktop {
-    display: none;
-  }
-
-  .sectionAboutMobile {
-    display: block;
-    padding: 80px 0 60px;
-  }
-
-  .heading.mobile {
-    font-size: 36px;
-    margin-bottom: 40px;
-  }
-
-  .paragraph.mobile {
-    font-size: 17px;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .heading.mobile {
-    font-size: 32px;
-  }
-
-  .paragraph.mobile {
-    font-size: 16px;
-  }
-
-  .mainContainer {
-    padding: 0 20px;
   }
 }

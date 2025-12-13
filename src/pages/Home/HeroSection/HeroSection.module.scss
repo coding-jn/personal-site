@@ -1,23 +1,15 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
 
-.sectionHeroDesktop {
-  min-height: 100vh;
+.heroSection {
+  min-height: calc(100vh - 100px);
+  padding: 30px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sectionHeroMobile {
-  display: none;
-}
-
-.mainContainer {
-  max-width: 1450px;
-  padding: 0 20px;
-  margin: 0 auto;
-}
-
-.heroGridDesktop {
+.heroGrid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,13 +27,30 @@
 
 .h1 {
   color: $color-gold;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
-  font-size: 120px;
+  font-size: 48px;
   font-weight: 600;
   line-height: 0.95;
   font-family: 'Epilogue', serif;
+
+  @include media(sm) {
+    letter-spacing: 3px;
+  }
+
+  @include media(lg) {
+    font-size: 80px;
+  }
+
+  @include media(xl) {
+    font-size: 120px;
+  }
+
+  &.mobile {
+    font-size: 48px;
+    letter-spacing: 1px;
+  }
 }
 
 .heroParagraph {
@@ -49,94 +58,43 @@
   color: $color-black;
   letter-spacing: 0.5px;
   margin: 0;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.7;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+
+  @include media(sm) {
+    font-size: 20px;
+  }
+
+  @include media(xl) {
+    font-size: 22px;
+  }
+
+  &.mobile {
+    font-size: 17px;
+  }
 }
 
 .checkItem {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 18px;
+  font-size: 16px;
+
+  @include media(sm) {
+    font-size: 18px;
+  }
 }
 
 .paragraphSmall {
-  font-size: 18px;
-}
+  font-size: 16px;
 
-
-@media screen and (max-width: 991px) {
-  .h1 {
-    font-size: 80px;
-  }
-
-  .heroParagraph {
-    font-size: 20px;
+  @include media(sm) {
+    font-size: 18px;
   }
 }
 
-@media screen and (max-width: 767px) {
-  .sectionHeroDesktop {
-    display: none;
-  }
-
-  .sectionHeroMobile {
-    display: block;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 0 60px;
-  }
-
-  .heroGridMobile {
-    width: 100%;
-  }
-
-  .contentHero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .h1.mobile {
-    font-size: 72px;
-    letter-spacing: 2px;
-  }
-
-  .heroParagraph.mobile {
-    font-size: 19px;
-    max-width: 50ch;
-    line-height: 1.7;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .h1 {
-    font-size: 48px;
-  }
-
-  .h1.mobile {
-    font-size: 48px;
-    letter-spacing: 1px;
-  }
-
-  .heroParagraph.mobile {
-    font-size: 17px;
-  }
-
-  .checkItem {
-    font-size: 16px;
-  }
-
-  .paragraphSmall {
-    font-size: 16px;
-  }
-
-  .mainContainer {
-    padding: 0 20px;
-  }
+.mainContainer {
+  padding: 0 20px;
 }

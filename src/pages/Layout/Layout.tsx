@@ -10,7 +10,7 @@ export const Layout = () => {
         Skip to main content
       </a>
       <NavigationBar />
-      <main id="main-content">
+      <main id="main-content" className={styles.mainContent}>
         <Outlet /> {/* This renders the content of the active route */}
       </main>
       <Footer />

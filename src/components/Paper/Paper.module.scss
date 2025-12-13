@@ -1,17 +1,5 @@
 @use '../../styles/variables' as *;
-
-.paper {
-  position: relative;
-  height: 250px;
-  border-radius: 10px;
-  overflow: hidden;
-
-  &:hover {
-    .text {
-      transform: translateY(-2px);
-    }
-  }
-}
+@use '../../styles/mixins' as *;
 
 .fileContainer {
   text-decoration: none;
@@ -24,7 +12,6 @@
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.15s cubic-bezier(0.77, 0, 0.175, 1);
-  grid-column: span 6;
 
   &:hover {
     transform: rotate(1deg);
@@ -48,118 +35,17 @@
   }
 }
 
-.text {
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 32px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.imageContainer {
-  display: flex;
-  justify-content: end;
-  height: 100%;
-}
-
-.image {
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.gradient {
-  position: absolute;
-  inset: 0px;
-}
-
-.pink {
-  background-color: $color-gold;
-
-  .text {
-    color: $color-black;
-  }
-
-  .gradient {
-    background: linear-gradient(to right,
-        rgb(232, 179, 57) 0%,
-        rgba(232, 179, 57, 0) 100%) center center / cover;
-  }
-}
-
-.black {
-  background-color: $color-black;
-
-  .text {
-    color: $color-white;
-  }
-
-  .gradient {
-    background: linear-gradient(to right,
-        rgb(21, 21, 28) 0%,
-        rgba(21, 21, 28, 0) 100%) center center / cover;
-  }
-}
-
-.tape {
-  position: absolute;
-  width: 100%;
-  z-index: 2;
-}
-
-.tape:first-of-type {
-  top: 0;
-}
-
-.tape:last-of-type {
-  bottom: 0;
-}
-
-.tape::before,
-.tape::after {
-  content: '';
-  width: 10vmin;
-  height: 4vmin;
-  position: absolute;
-  background-color: $color-gray;
-  opacity: 0.5;
-  border-right: 1px dotted $color-dark-gray;
-  border-left: 1px dotted $color-dark-gray;
-}
-
-.tape:last-of-type::after {
-  transform: rotate(-45deg);
-  right: -4vmin;
-  top: -3vmin;
-}
-
-.tape:first-of-type::before {
-  transform: rotate(-45deg);
-  left: -4vmin;
-}
-
-.tape:first-of-type::after {
-  transform: rotate(45deg);
-  right: -4vmin;
-  top: 0;
-}
-
-.tape:last-of-type::before {
-  transform: rotate(45deg);
-  left: -4vmin;
-  bottom: 0;
-}
-
 .cardImageFloat {
   width: 100%;
-  height: 38em;
+  height: 30.9em;
   display: flex;
   align-items: flex-end;
   padding: 1em 0 0 1em;
   overflow: hidden;
+
+  @include media(lg) {
+    height: 38em;
+  }
 }
 
 .roundedImage {
@@ -189,38 +75,18 @@
   padding: 0 3.5em 1.5em 1.2em;
 }
 
-.labelTag {
-  color: $color-black;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.4;
-
-  &.wText {
-    color: $color-white;
-  }
-}
-
 .mainHeading {
   color: $color-black;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-weight: 700;
   line-height: 1.1;
 
-  &.wText {
-    color: $color-white;
+  @include media(sm) {
+    font-size: 1.4em;
   }
-}
-
-.divBlock {
-  width: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .secondaryHeading {
@@ -229,21 +95,13 @@
   text-transform: uppercase;
   flex: 1;
   margin: 0;
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-weight: 300;
   line-height: 1.1;
 
-  &.wText {
-    color: $color-white;
+  @include media(sm) {
+    font-size: 1.4em;
   }
-}
-
-.iconArrow {
-  height: 10px;
-  max-height: 30px;
-  min-height: 25px;
-  margin-top: 2px;
-  margin-left: 10px;
 }
 
 .marriott {
@@ -295,21 +153,5 @@
   .secondaryHeading,
   .mainHeading {
     color: $color-white;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .cardImageFloat {
-    height: 30.9em;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .mainHeading {
-    font-size: 1.1em;
-  }
-
-  .secondaryHeading {
-    font-size: 1.1em;
   }
 }

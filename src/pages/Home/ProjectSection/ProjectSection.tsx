@@ -1,9 +1,9 @@
-import { Paper } from '../../../components/Paper'
-import { TYPES } from '../../../components/Paper/types'
-import styles from './PortfolioSection.module.scss'
 import marriottImage from '../../../assets/marriott-international.webp'
 import prekindleImage from '../../../assets/prekindle.png'
 import uvaHealthImage from '../../../assets/uva-health.png'
+import { Paper } from '../../../components/Paper'
+import { TYPES } from '../../../components/Paper/types'
+import styles from './ProjectSection.module.scss'
 
 const projects = [
   {
@@ -38,26 +38,24 @@ const projects = [
   }
 ]
 
-export const PortfolioSection = () => {
+export const ProjectSection = () => {
   return (
-    <section id="work" className={styles.project}>
-      <div className={styles.h1Hp}>PROJECT HIGHLIGHTS<br /></div>
-      <div className={styles.projectHighlightContainer}>
-        <div className={styles.projectHighlightGrid}>
-          {projects.map((project) => (
-            <Paper
-              key={project.id}
-              type={TYPES.PROJECT}
-              color={project.color}
-              image={project.image}
-              label={project.label}
-              title={project.title}
-              subtitle={project.subtitle}
-              whiteText={project.whiteText}
-              href={project.href}
-            />
-          ))}
-        </div>
+    <section className={styles.projects}>
+      <div className={styles.heading}>project highlights<br /></div>
+      <div className={styles.projectsContainer}>
+        {projects.map((project) => (
+          <Paper
+            key={project.id}
+            type={TYPES.PROJECT}
+            color={project.color}
+            image={project.image}
+            label={project.label}
+            title={project.title}
+            subtitle={project.subtitle}
+            whiteText={project.whiteText}
+            href={project.href}
+          />
+        ))}
       </div>
     </section>
   )
