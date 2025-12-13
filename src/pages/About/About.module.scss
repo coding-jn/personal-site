@@ -1,8 +1,8 @@
 @use '../../styles/variables' as *;
 
 .about {
-  min-height: calc(100vh - 100px);
-  padding: 30px 20px;
+  min-height: calc(80vh - 100px);
+  padding: 30px 20px 90px 20px;
 }
 
 .aboutGrid {

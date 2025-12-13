@@ -37,14 +37,14 @@
 
 .cardImageFloat {
   width: 100%;
-  height: 30.9em;
+  height: 430px;
   display: flex;
   align-items: flex-end;
-  padding: 1em 0 0 1em;
+  padding: 16px 0 0 16px;
   overflow: hidden;
 
   @include media(lg) {
-    height: 38em;
+    height: 530px;
   }
 }
 
@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 3.5em 1.5em 1.2em;
+  padding: 0 56px 24px 20px;
 }
 
 .mainHeading {
@@ -80,12 +80,12 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.1;
 
   @include media(sm) {
-    font-size: 1.4em;
+    font-size: 22px;
   }
 }
 
@@ -95,12 +95,12 @@
   text-transform: uppercase;
   flex: 1;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.1;
 
   @include media(sm) {
-    font-size: 1.4em;
+    font-size: 22px;
   }
 }
 
